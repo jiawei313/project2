@@ -3,15 +3,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public abstract class MesoInherit extends MesoAbstract{
-	private static ArrayList<String> list = new ArrayList<String>();
-	private String stID; 
-
-	public MesoInherit(String stID) throws IOException {
-		this.stID = stID;
-		readStations();
-	}
+public class MesoInherit extends MesoAbstract{
+	public static ArrayList<String> list = new ArrayList<String>();
+	private MesoStation mesoStation;
 	
+	
+	public MesoInherit(){
+		list = new ArrayList<String>();
+		mesoStation = null;
+	}
+	public MesoInherit(MesoStation mesoStation) throws IOException{
+		readStations();
+		this.mesoStation = mesoStation;
+		
+	}
+
 	
 	public static void readStations() throws IOException
 	{
@@ -40,34 +46,49 @@ public abstract class MesoInherit extends MesoAbstract{
 	
 	
 	public int AsciiCeiling() {
-		char[] cArray= new char[4];
 		
-		cArray = stID.toCharArray();
+		
+		
 		int ascCeiling = 0;
-		for(int i = 0; i < cArray.length; ++i) {
-			ascCeiling += (int)cArray[i];
+		for(int i = 0; i < 4; ++i) {
+			char character = mesoStation.getStID().charAt(i);
+			ascCeiling += (int)character;
 		}
-		
+		ascCeiling = (int) Math.ceil(ascCeiling / 4.0);
 		
 		return ascCeiling;
 		
 	}
+	
 	public int AsciiFloor() {
-		char[] cArray= new char[4];
 		
-		cArray = stID.toCharArray();
+		
+		
 		int AsciiFloor = 0;
-		for(int i = 0; i < cArray.length; ++i) {
-			AsciiFloor += (int)cArray[i];
+		for(int i = 0; i < 4; ++i) {
+			char character = mesoStation.getStID().charAt(i);
+			AsciiFloor += (int)character;
 		}
-		
+		AsciiFloor = AsciiFloor / 4;
 		
 		return AsciiFloor;
 		
 	}
-	
 
-
+public int AsciiAvg() {
+		
+		
+		
+		double sum = 0;
+		for(int i = 0; i < 4; ++i) {
+			char character = mesoStation.getStID().charAt(i);
+			sum += (int)character;
+		}
+		int AsciiAvg = (int) Math.round(sum / 4.0);
+		
+		return AsciiAvg;
+		
+	}
 
 
 
@@ -76,7 +97,19 @@ public abstract class MesoInherit extends MesoAbstract{
 
 	@Override
 	int[] calAverage() {
-		// TODO Auto-generated method stub
-		return null;
+		int[] arr = new int[3];
+		arr[0] = AsciiCeiling();
+		arr[1] = AsciiFloor();
+		arr[2] = AsciiAvg();
+		
+		return arr;
 	}
+	@Override
+	char letterAverage() {
+		char ascii = (char) calAverage()[2];
+		
+		
+		return ascii;
+	}
+
 }

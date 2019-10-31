@@ -1,10 +1,11 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LetterAvg extends MesoInherit{
 
 	private char letterAverage;
 	
-	public LetterAvg(char letterAverage) {
+	public LetterAvg(char letterAverage) throws IOException {
 		readStations();
 		this.letterAverage = letterAverage;
 		
