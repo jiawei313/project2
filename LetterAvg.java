@@ -5,7 +5,7 @@ public class LetterAvg extends MesoInherit{
 	private char letterAverage;
 	
 	public LetterAvg(char letterAverage) {
-		readFile();
+		readStations();
 		this.letterAverage = letterAverage;
 		
 	}
