@@ -34,8 +34,8 @@ public class PosAvg extends MesoInherit{
 		
 		if (index > 1 && index < 120) 
 		{
-		this.stationMinus1 = list.get(index - 1);
-		this.stationMinus2 = list.get(index - 2);
+		this.stationMinus1 = list.get(index);
+		this.stationMinus2 = list.get(index);
 		
 		this.stationPlus1 = list.get(index + 1);
 		this.stationPlus2 = list.get(index + 2);
