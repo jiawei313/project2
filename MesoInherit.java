@@ -7,19 +7,11 @@ public abstract class MesoInherit extends MesoAbstract{
 	private static ArrayList<String> list = new ArrayList<String>();
 	private String stID; 
 
-	public MesoInherit(String stID) {
+	public MesoInherit(String stID) throws IOException {
 		this.stID = stID;
-		readFile();
+		readStations();
 	}
 	
-	public void readFile() {
-		try {
-			readStations();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	
 	public static void readStations() throws IOException
 	{
