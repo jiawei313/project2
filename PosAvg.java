@@ -1,3 +1,4 @@
+import java.io.IOException;
 
 public class PosAvg extends MesoInherit{
 
@@ -7,7 +8,7 @@ public class PosAvg extends MesoInherit{
 	private Object stationPlus1;
 	private Object stationPlus2;
 
-	public PosAvg(String stID) {
+	public PosAvg(String stID) throws IOException {
 		this.stID = stID;
 		readStations();
 		
