@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
-public class LetterAvg {
+public class LetterAvg extends MesoInherit{
+
 	private char letterAverage;
+	
 	public LetterAvg(char letterAverage) {
 		readFile();
 		this.letterAverage = letterAverage;
@@ -39,5 +41,24 @@ public class LetterAvg {
 		
 		return Arrlist;
 	}
-
+	
+	public String toString() {
+		String str = "";
+		for(int i = 0; i < startingWithLetter().size(); ++i) {
+			if(i < startingWithLetter().size() - 1) {
+			
+			str += startingWithLetter().get(i) + "\n";
+			}
+			else
+			str += startingWithLetter().get(i);
+			
+		}
+		
+		
+		return "\nThey are:\n" + str;
+		
+	}
+	
+	
+	
 }
