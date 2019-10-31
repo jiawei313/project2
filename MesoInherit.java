@@ -96,20 +96,6 @@ public int AsciiAvg() {
 
 
 	@Override
-	int[] calAverage() {
-		int[] arr = new int[3];
-		arr[0] = AsciiCeiling();
-		arr[1] = AsciiFloor();
-		arr[2] = AsciiAvg();
-		
-		return arr;
-	}
-	@Override
-	char letterAverage() {
-		char ascii = (char) calAverage()[2];
-		
-		
-		return ascii;
-	}
+	
 
 }
